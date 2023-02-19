@@ -6,7 +6,7 @@ let boardActive = true;
 const choose = async index => {
     const card = document.querySelector(`[data-index="${index}"]`);
     if(card.dataset.status == "active" && boardActive == true) {
-
+        card.dataset.status = "inactive";
         card.style.backgroundColor = card.dataset.c;
         choiceCount++;
         chosenCards[choiceCount-1] = card;
@@ -21,13 +21,11 @@ const choose = async index => {
 const checkIfCorrect = () => {
     if(chosenCards[0].dataset.c == chosenCards[1].dataset.c) {
         points++;
-        chosenCards.forEach((element) => {
-            element.dataset.status = "inactive";
-        })
         boardActive = true;
     } else {
         setTimeout(() => {
             chosenCards.forEach((element) => {
+                element.dataset.status = "active";
                 element.style.backgroundColor = "#222";  
             })
             boardActive = true;
