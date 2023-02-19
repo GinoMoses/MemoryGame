@@ -39,7 +39,7 @@ const checkIfCorrect = () => {
 const checkWin = () => {
     if(points == 12) {
         setTimeout(() => {
-            alert('Gratulacje');
+            alert('Congratulations');
             location.reload();
         }, 200);
     }
